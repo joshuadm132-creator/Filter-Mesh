@@ -104,7 +104,11 @@ function preload(){
 
 
 function setup() {
-    createCanvas(1200, 1200);
+    // 1. Make the canvas responsive to the Iframe size
+    let canvas = createCanvas(windowWidth, windowHeight);
+    // 2. Attach the canvas to your wrapper div (Matches your Portfolio ID)
+    canvas.parent('p5-canvas-wrapper');
+   
     background(0);
     pixelDensity(1);
     
@@ -276,4 +280,12 @@ function handleImage(file) {
     console.log("File is not an image.");
     testImage = null;
   }
+}
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    
+    // Re-position the slider so it doesn't float off-screen
+    if(intensitySlider) {
+        intensitySlider.position(windowWidth * 0.6, windowHeight * 0.3);
+    }
 }
