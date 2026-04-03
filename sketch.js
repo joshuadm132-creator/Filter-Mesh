@@ -115,7 +115,7 @@ function setup() {
         canvas.parent('p5-canvas-wrapper');
     } else {
         // Fallback for when you are viewing the project standalone
-        canvas = createCanvas(1000, 800);
+        canvas = createCanvas(700, 600);
     }
     
     background(0);
